@@ -11,10 +11,10 @@ import '../styles/swiper-custom.css'
 import SlideContent from "../components/SlideContent"
 
 const images = [
-  '/images/sky.jpg',
-  '/images/field.jpg',
-  '/images/wave.jpg',
-  '/images/way.jpg',
+  '/portfolio/images/sky.jpg',
+  '/portfolio/images/field.jpg',
+  '/portfolio/images/wave.jpg',
+  '/portfolio/images/way.jpg',
 ]
 
 const Home =()=>{
