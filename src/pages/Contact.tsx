@@ -49,6 +49,8 @@ const Contact=()=>{
             backgroundColor:'gray',
             fontSize:'1.5rem',
             marginRight: 3,
+            position:'relative',
+            left:'5px',
           }}
         >
           お問い合わせ

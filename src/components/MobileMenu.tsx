@@ -1,20 +1,28 @@
 import MenuIcon from '@mui/icons-material/Menu'
 import { useState } from 'react'
-import { Drawer, IconButton, List, ListItem, ListItemText, Box } from '@mui/material'
+import { Drawer, IconButton, List, ListItem, ListItemText, Box, Icon, Divider } from '@mui/material'
 import ListItemButton from '@mui/material/ListItemButton'
 import { Link } from "react-router-dom"
 import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
+import {
+  Home as HomeIcon,
+  Person as PersonIcon,
+  Psychology as PsychologyIcon,
+  Business as BusinessIcon,
+  Mail as MailIcon,
+} from '@mui/icons-material'
 
 
 const MobileMenu = ()=>{
   const [open, setOpen] = useState(false)
+
   const menuItems = [
-    { label: 'トップ', path: '/', color: 'orange', hoverColor: '#cc6600' },
-    { label: 'プロフィール', path: '/about', color: 'purple', hoverColor: '#4b0082' },
-    { label: 'スキル', path: '/skills', color: 'green', hoverColor: '#006400' },
-    { label: '業務職歴', path: '/works', color: 'blue', hoverColor: '#00008b' },
-    { label: 'お問い合せ', path: '/contact', color: 'gray', hoverColor: '#444' },
+    { icon:<HomeIcon/>,label: 'トップ', path: '/', color: 'orange', hoverColor: '#cc6600' },
+    { icon:<PersonIcon/>,label: 'プロフィール', path: '/about', color: 'purple', hoverColor: '#4b0082' },
+    { icon:<PsychologyIcon/>,label: 'スキル', path: '/skills', color: 'green', hoverColor: '#006400' },
+    { icon:<BusinessIcon/>,label: '業務職歴', path: '/works', color: 'blue', hoverColor: '#00008b' },
+    { icon:<MailIcon/>,label: 'お問い合せ', path: '/contact', color: 'gray', hoverColor: '#444' },
   ]
 
   return(
@@ -45,11 +53,40 @@ const MobileMenu = ()=>{
         open={open}
         onClose={() => setOpen(false)}
       >
-        <p style={{position:'relative',left:'8px',fontStyle:'italic',fontWeight:'bold'}}>Works I.T</p>
+        <p
+          style={{
+            position: 'relative',
+            borderBottom: '1px solid #ccc',
+            paddingBottom: 15,
+            marginBottom: 1,
+          }}
+        >
+          <span
+            style={{
+              display: 'inline-block',
+              position: 'relative',
+              left: '10px',
+              fontStyle: 'italic',
+              fontWeight: 'bold',
+              fontSize: '1.3rem'
+            }}
+          >
+            Works I.T
+          </span>
+        </p>
         <Box>
           <List>
-            {menuItems.map(({ label, path, color, hoverColor }) => (
-                <ListItem>
+            {menuItems.map(({ icon, label, path, color, hoverColor }) => (
+                <ListItem
+                sx={{
+                  borderBottom: '1px solid #ccc',
+                  paddingBottom: 1,
+                  marginBottom: 1,
+                }}
+                >
+                  <Box sx={{ marginRight:0.5 ,color:color, position:'relative',top:5}}>
+                    {icon}
+                  </Box>
                   <Link
                     to={path}
                     key={path}
