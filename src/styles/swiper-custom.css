@@ -1,4 +1,10 @@
 /* styles/swiper-custom.css */
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .swiper-button-next,
 .swiper-button-prev {
   color: white;
