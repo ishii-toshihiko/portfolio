@@ -45,8 +45,20 @@ const Resume=()=>{
             </TimelineDot>
             <TimelineConnector />
           </TimelineSeparator>
-          <TimelineContent sx={{ py: '12px', px: 2 }}>
-            <Typography variant="h2" component="span">
+          <TimelineContent
+            sx={{
+              py: '12px',
+              px: 2,
+            }}
+          >
+            <Typography
+              variant="h5"
+              component="span"
+              sx={{
+                color:'blue',
+                fontWeight:'bold',
+              }}
+            >
               {label}
             </Typography>
             <Typography>
