@@ -100,7 +100,7 @@ export const rowSoft: Row[] = [
   {
     no: 9,
     lang: 'Docker',
-    period: '１.５年',
+    period: '１年',
     note: {
       name: 'Docker-rating',
       value: 1.5,
@@ -112,10 +112,10 @@ export const rowSoft: Row[] = [
   {
     no: 9,
     lang: 'React',
-    period: '学習中',
+    period: '習得中',
     note: {
       name: 'React-rating',
-      value: 0.5,
+      value: 1,
       max: 1,
       precision: 0.5,
       readOnly: true,
@@ -124,7 +124,7 @@ export const rowSoft: Row[] = [
   {
     no: 10,
     lang: 'Typescript',
-    period: '学習中',
+    period: '習得中',
     note: {
       name: 'Typescript-rating',
       value: 0.5,
@@ -136,7 +136,7 @@ export const rowSoft: Row[] = [
   {
     no: 11,
     lang: 'RSpec',
-    period: '学習中',
+    period: '習得中',
     note: {
       name: 'RSpec-rating',
       value: 0.5,
@@ -151,7 +151,7 @@ export const rowSoft: Row[] = [
 export const rowHard: Row[] = [
    {
     no: 1,
-    lang: 'デジタル回路設計',
+    lang: 'デジタル 回路設計',
     period: '２５年',
     note: {
       name: 'DigitalCircuit-rating',
@@ -163,7 +163,7 @@ export const rowHard: Row[] = [
   },
   {
     no: 2,
-    lang: 'アナログ回路設計',
+    lang: 'アナログ 回路設計',
     period: '１６年',
     note: {
       name: 'AnalogCircuit-rating',
@@ -211,7 +211,7 @@ export const rowHard: Row[] = [
   },
   {
     no: 6,
-    lang: 'DSPソフト設計',
+    lang: 'DSP ソフト設計',
     period: '１８年',
     note: {
       name: 'DSP-rating',

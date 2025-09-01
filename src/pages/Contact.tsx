@@ -24,56 +24,28 @@ const Contact=()=>{
     // ここでメール送信処理を追加（例：EmailJS、Formspree、Rails APIなど）
   };
 
-
   return(
     <>
       <Divider/>
-      <Box
+      <Box className="table-container-size contact-theme"
         component="form"
         onSubmit={handleSubmit}
-        sx={{
-          width: {
-            xs: '100%',   // スマホ
-            sm: '80%',    // タブレット
-            md: '60%',    // デスクトップ
-          },
-          //maxWidth: 500,
-          mx: 'auto',
-          mt: 4,
-          marginBottom: 5,
-        }}
       >
-        <Button
-          sx={{
-            color:'white',
-            backgroundColor:'gray',
-            fontSize:'1.5rem',
-            marginRight: 3,
-            position:'relative',
-            left:'5px',
-          }}
-        >
+        <Button className="works-button contact-button">
           お問い合わせ
         </Button>
-        {/* <span style={{fontWeight:'bold'}}>
-          Works ITへのお問い合わせ
-        </span> */}
         <br />
 
-        <div style={{ display: 'flex', width: '100%' }}>
-          <TextField
+        <div className="contact-field">
+          <TextField className="contact-name"
             label="お名前"
             name="name"
             variant="outlined"
             required
             value={formData.name}
             onChange={handleChange}
-            sx={{
-              margin: 2,
-              width: '40%',
-              }}
           />
-          <TextField
+          <TextField className="contact-email"
             label="メールアドレス"
             name="email"
             type="email"
@@ -81,30 +53,23 @@ const Contact=()=>{
             required
             value={formData.email}
             onChange={handleChange}
-            sx={{
-              margin: 2,
-              width: '60%',
-              }}
           />
         </div>
-        <div style={{ display: 'flex', width: '100%' }}>
-        <TextField
-          label="お問い合わせ内容"
-          name="message"
-          multiline
-          rows={5}
-          variant="outlined"
-          fullWidth
-          required
-          value={formData.message}
-          onChange={handleChange}
-          sx={{
-             margin: 2,
-            }}
-        />
+        <div className="contact-field">
+          <TextField className="contact-message"
+            label="お問い合わせ内容"
+            name="message"
+            multiline
+            rows={5}
+            variant="outlined"
+            fullWidth
+            required
+            value={formData.message}
+            onChange={handleChange}
+          />
         </div>
 
-        <div style={{ display: 'flex', width: '100%' }}>
+        <div className="contact-field">
           <Button
             type="submit"
             variant="contained"
@@ -117,45 +82,24 @@ const Contact=()=>{
           </Button>
         </div>
       </Box>
+
       <Divider/>
-      <Box
-        sx={{
-          width: {
-            xs: '100%',   // スマホ
-            sm: '80%',    // タブレット
-            md: '60%',    // デスクトップ
-          },
-          p: 0.5,
-          mx: 'auto',
-          marginTop: 2,
-          marginBottom: 5,
-        }}
-      >
-        <h1
-          style={{
-            float:'left',
-            width: 180,
-            fontWeight:'bold',
-            fontStyle:'italic',
-         }}>
+      <Box className='table-container-size'>
+        <div className="contact-logo">
           Works I.T
-        </h1>
-        <span
-          style={{
-            float:'left',
-            fontWeight:'bold',
-            marginTop: 20,
-            color:'blue',
-          }}
-        >
+        </div>
+        <span className="table-cell-std contact-address">
           （※ 以下はセキュリティ保護のため架空情報です）
         </span>
+
         <ListItem>
           <ListItemIcon>
             <BusinessIcon style={{color:" green"}}/>
           </ListItemIcon>
-          <ListItemText>
-            住所：  〒000-0000 架空県架空市架空町00-0-800
+          <ListItemText >
+            <span className="table-cell-std contact-address">
+              住所：  〒000-0000 架空県架空市架空町00-0-800
+            </span>
           </ListItemText>
         </ListItem>
         <ListItem>
@@ -163,7 +107,9 @@ const Contact=()=>{
             <CallIcon style={{color:"orange"}}/>
           </ListItemIcon>
           <ListItemText>
-            電話番号： 090-0000-0000
+            <span className="table-cell-std contact-address">
+              電話番号： 090-0000-0000
+            </span>
           </ListItemText>
         </ListItem>
         <ListItem>
@@ -171,7 +117,9 @@ const Contact=()=>{
             <EmailIcon style={{color:"blue"}}/>
           </ListItemIcon>
           <ListItemText>
-            Eメール： dummy@example.com
+            <span className="table-cell-std contact-address">
+              Eメール： dummy@example.com
+            </span>
           </ListItemText>
         </ListItem>
       </Box>

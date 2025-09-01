@@ -1,5 +1,6 @@
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Rating } from '@mui/material';
 import type { Row } from '../types/Row';
+import StarIcon from '@mui/icons-material/Star';
 
 
 interface SkillTableProps {
@@ -9,46 +10,25 @@ interface SkillTableProps {
 }
 
 const SkillTable = ({ title, rows, maxRating }: SkillTableProps) => (
-  <TableContainer sx={{ width: { xs: '100%', sm: '80%', md: '60%' }, p: 0.5, mx: 'auto' }}>
-    <button style={{ backgroundColor: 'green', marginTop: '25px' }}>{title}</button>
-    <Table sx={{ backgroundColor: 'aliceblue', tableLayout: 'fixed', marginBottom: '30px' }}>
+  <TableContainer className='table-container-size'>
+    <button className="table-button">
+      {title}
+    </button>
+    <Table className='table-base'>
       <TableHead>
         <TableRow sx={{ backgroundColor: 'lightgray' }}>
-          <TableCell align="center" sx={{ width: '20%', borderRight: '1px solid white' }}>項目</TableCell>
-          <TableCell align="center" sx={{ width: '15%', borderRight: '1px solid white' }}>期間</TableCell>
-          <TableCell align="left" sx={{ width: '65%' }}></TableCell>
+          <TableCell className='table-cell-theme' sx={{ width: '20%'}}>項目</TableCell>
+          <TableCell className='table-cell-theme' sx={{ width: '15%'}}>期間</TableCell>
+          <TableCell className="table-cell-theme" sx={{ width: '65%'}}>習熟度</TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
         {rows.map((row) => (
           <TableRow key={row.no}>
-            <TableCell 
-              align="left"
-              sx={{
-                fontSize: {
-                  xs: '0.7rem',   // スマホ
-                  sm: '0.9rem',   // タブレット
-                  md: '1.0rem',   // デスクトップ
-                  lg: '1.2rem',   // デスクトップ
-                  xl: '1.4rem',   // デスクトップ
-                },
-                border: '1px solid lightgray',
-              }}>
+            <TableCell align="left" className='table-cell-left table-cell-std'>
                 {row.lang}
               </TableCell>
-            <TableCell
-              align="right"
-              sx={{
-                fontSize: {
-                  xs: '0.7rem',   // スマホ
-                  sm: '0.9rem',   // タブレット
-                  md: '1.0rem',   // デスクトップ
-                  lg: '1.2rem',   // デスクトップ
-                  xl: '1.4rem',   // デスクトップ
-                },
-                border: '1px solid lightgray',
-              }}
-            >
+            <TableCell align="center" className='table-cell-std'>
               {row.period}
             </TableCell>
             <TableCell>
@@ -58,15 +38,8 @@ const SkillTable = ({ title, rows, maxRating }: SkillTableProps) => (
                 max={maxRating}
                 precision={row.note.precision}
                 readOnly={row.note.readOnly}
-                sx={{
-                  fontSize: {
-                    xs: '1.0rem',   // スマホ
-                    sm: '1.2rem',   // タブレット
-                    md: '1.5rem',   // デスクトップ
-                    lg: '2.2rem',   // デスクトップ
-                    xl: '2.6rem',   // デスクトップ
-                  },
-                }}
+                emptyIcon={<StarIcon sx={{ opacity: 0 }} />} // ← 空の星を非表示にする
+                className='rating-size'
               />
             </TableCell>
           </TableRow>

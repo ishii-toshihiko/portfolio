@@ -37,79 +37,51 @@ const Works=()=>{
   return(
     <>
      <Divider/>
-     <Box
-      sx={{
-        width: {
-          xs: '100%',   // スマホ
-          sm: '80%',    // タブレット
-          md: '60%',    // デスクトップ
-        },
-        p: 0.5,
-        mx: 'auto'
-      }}
-     >
-      <div style={{ display: 'flex', alignItems: 'center',marginTop:'20px' }}>
-      <Button
-        sx={{
-          backgroundColor:'blue',
-          fontSize:'1.5rem',
-          color:'white',
-          width: 220,
-          marginRight: '20px',
-        }}
-      >
+     <Box className='table-container-size'>
+      <div className='works-header'>
+      <Button className='works-button'>
         職務経歴
       </Button>
-        ※詳細は職務経歴書をご参照ください
+        <p className='table-cell-std works-note'>
+          ※詳細は職務経歴書をご参照ください
+        </p>
       </div>
      </Box>
 
-     <div>
-    <TableContainer
-        sx={{
-          width: {
-            xs: '100%',   // スマホ
-            sm: '80%',    // タブレット
-            md: '60%',    // デスクトップ
-          },
-          p: 0.5,
-          mx: 'auto'
-        }}
-      >
-
-      <Table
-          sx={{
-            backgroundColor: 'aliceblue',
-            tableLayout: 'fixed',
-            marginTop: 2,
-            marginBottom: 10,
-          }}
-        >
-        {/* ヘッダー */}
-        <TableHead >
-          <TableRow sx={{ backgroundColor: 'lightgray' }}>
-            <TableCell align="center" sx={{width:'30%', borderRight: '1px solid white' }}>西暦</TableCell>
-            <TableCell align="center" sx={{width:'10%', borderRight: '1px solid white' }}>期間</TableCell>
-            <TableCell align="center" sx={{width:'30%', borderRight: '1px solid white' }}>社名</TableCell>
-            <TableCell align="center" sx={{width:'30%',}}>内容</TableCell>
-          </TableRow>
-        </TableHead>
-        {/* ボディ */}
-        <TableBody>
-          {/* rows(行が格納された配列をループ処理) */}
-          {rows.map((row) => {
-            return (
-              <TableRow key={row.no}>
-                <TableCell align="center" sx={{border: '1px solid lightgray'}}>{row.date}</TableCell>
-                <TableCell align="right" sx={{border: '1px solid lightgray'}}>{row.period}</TableCell>
-                <TableCell align="left" sx={{border: '1px solid lightgray'}}>{row.name}</TableCell>
-                <TableCell align="left" sx={{border: '1px solid lightgray'}}>{row.note}</TableCell>
+      <div>
+        <TableContainer  className='table-container-size'>
+          <Table className='table-base'>
+            <TableHead >
+              <TableRow sx={{ backgroundColor: 'lightgray' }}>
+                <TableCell className='table-cell-theme' sx={{width:'28%'}}>西暦</TableCell>
+                <TableCell className='table-cell-theme' sx={{width:'13%'}}>期間</TableCell>
+                <TableCell className='table-cell-theme' sx={{width:'28%'}}>社名</TableCell>
+                <TableCell className='table-cell-theme' sx={{width:'31%',}}>内容</TableCell>
               </TableRow>
-            );
-          })}
-        </TableBody>
-      </Table>
-      </TableContainer>
+            </TableHead>
+            <TableBody>
+              {/* rows(行が格納された配列をループ処理) */}
+              {rows.map((row) => {
+                return (
+                  <TableRow key={row.no}>
+                    <TableCell align="center" className='table-cell-std'>
+                      {row.date}
+                    </TableCell>
+                    <TableCell align="center" className='table-cell-std'>
+                        {row.period}
+                    </TableCell>
+                    <TableCell align="left" className='table-cell-std'>
+                      {row.name}
+                    </TableCell>
+                    <TableCell align="left" className='table-cell-std'>
+                      {row.note}
+                    </TableCell>
+                  </TableRow>
+                )
+              })}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </div>
     <Divider/>
     </>
