@@ -10,11 +10,12 @@ import 'swiper/css/scrollbar'
 import '../styles/swiper-custom.css'
 import SlideContent from "../components/SlideContent"
 
+//  gitHubへデプロイする時の対策
 const images = [
-  '/portfolio/images/sky.jpg',
-  '/portfolio/images/field.jpg',
-  '/portfolio/images/wave.jpg',
-  '/portfolio/images/way.jpg',
+  `${import.meta.env.BASE_URL}images/sky.jpg`,
+  `${import.meta.env.BASE_URL}images/field.jpg`,
+  `${import.meta.env.BASE_URL}images/wave.jpg`,
+  `${import.meta.env.BASE_URL}images/way.jpg`,
 ]
 
 const Home =()=>{

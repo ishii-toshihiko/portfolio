@@ -6,23 +6,38 @@ import { useState } from 'react';
 import { TextField, Button, Box } from '@mui/material'
 
 
+const contactDetails = [
+  {
+    icon: <BusinessIcon style={{ color: 'green' }} />,
+    text: '住所： 〒000-0000 架空県架空市架空町00-0-800',
+  },
+  {
+    icon: <CallIcon style={{ color: 'orange' }} />,
+    text: '電話番号： 090-0000-0000',
+  },
+  {
+    icon: <EmailIcon style={{ color: 'blue' }} />,
+    text: 'Eメール： dummy@example.com',
+  },
+]
+
 const Contact=()=>{
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
-  });
+  })
 
   const handleChange = (e:any) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-  };
+  }
 
   const handleSubmit = (e:any) => {
     e.preventDefault();
     console.log('送信内容:', formData);
     // ここでメール送信処理を追加（例：EmailJS、Formspree、Rails APIなど）
-  };
+  }
 
   return(
     <>
@@ -55,6 +70,7 @@ const Contact=()=>{
             onChange={handleChange}
           />
         </div>
+
         <div className="contact-field">
           <TextField className="contact-message"
             label="お問い合わせ内容"
@@ -92,36 +108,17 @@ const Contact=()=>{
           （※ 以下はセキュリティ保護のため架空情報です）
         </span>
 
-        <ListItem>
-          <ListItemIcon>
-            <BusinessIcon style={{color:" green"}}/>
-          </ListItemIcon>
-          <ListItemText >
-            <span className="table-cell-std contact-address">
-              住所：  〒000-0000 架空県架空市架空町00-0-800
-            </span>
-          </ListItemText>
-        </ListItem>
-        <ListItem>
-          <ListItemIcon>
-            <CallIcon style={{color:"orange"}}/>
-          </ListItemIcon>
-          <ListItemText>
-            <span className="table-cell-std contact-address">
-              電話番号： 090-0000-0000
-            </span>
-          </ListItemText>
-        </ListItem>
-        <ListItem>
-          <ListItemIcon>
-            <EmailIcon style={{color:"blue"}}/>
-          </ListItemIcon>
-          <ListItemText>
-            <span className="table-cell-std contact-address">
-              Eメール： dummy@example.com
-            </span>
-          </ListItemText>
-        </ListItem>
+        {contactDetails.map((detail, index) => (
+          <ListItem key={index}>
+            <ListItemIcon>{detail.icon}</ListItemIcon>
+            <ListItemText>
+              <span className="table-cell-std contact-address">
+                {detail.text}
+              </span>
+            </ListItemText>
+          </ListItem>
+        ))}
+
       </Box>
       <Divider/>
     </>
