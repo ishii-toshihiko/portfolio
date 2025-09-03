@@ -9,7 +9,7 @@ const Header = ()=>{
     <>
       <link href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap" rel="stylesheet"></link>
       <Box className={'header responsive-box'}>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 2 }}>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 2,fontWeight: 900, }}>
         {/* <img src={`/images/gold-logo.png`} alt="logo" style={{ width: '300px', height: 'auto',marginTop: 30, position:'relative',left:'-20px' }}/> */}
           Works I.T
         </Typography>
